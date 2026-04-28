@@ -1,0 +1,207 @@
+<html>
+<head>
+<title>Virgen de Chapi</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Great+Vibes&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #2b0000, #7a5c00);
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.contenedor {
+  max-width: 400px;
+  margin: auto;
+  padding: 30px 20px 120px;
+}
+
+/* TÍTULO */
+.titulo {
+  font-family: 'Great Vibes', cursive;
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+/* SUBTÍTULO */
+.subtitulo {
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+}
+
+/* IMAGEN */
+.portada-img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 0 25px gold;
+  margin: 20px 0;
+}
+
+/* TEXTO PRINCIPAL */
+.texto {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 20px;
+}
+
+/* FECHA */
+.fecha {
+  font-family: 'Cinzel';
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+/* FRASE */
+.frase {
+  font-style: italic;
+  font-size: 13px;
+  margin-top: 25px;
+  opacity: 0.9;
+}
+
+/* SECCIONES */
+.seccion {
+  display: none;
+}
+
+.activa {
+  display: block;
+  animation: fade 1s;
+}
+
+@keyframes fade {
+  from {opacity:0; transform: translateY(20px);}
+  to {opacity:1;}
+}
+
+/* PROGRAMA */
+.card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 15px;
+  padding: 12px;
+  margin: 10px;
+  border: 1px solid rgba(255,215,0,0.3);
+}
+
+/* MENÚ */
+.nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+}
+
+/* BOTONES */
+button {
+  padding: 10px 15px;
+  margin: 6px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(45deg, gold, #ffcc00);
+}
+
+/* BOTÓN MÚSICA */
+.musica-btn {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: gold;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  z-index: 999;
+}
+</style>
+
+</head>
+
+<body onclick="activarMusica()">
+
+<audio id="musica" loop autoplay>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<button class="musica-btn" onclick="toggleMusica()">🎵</button>
+
+<!-- 🔹 PORTADA -->
+<div id="inicio" class="seccion activa">
+  <div class="contenedor">
+
+    <div class="titulo">Virgen de Chapi</div>
+
+    <div class="subtitulo">
+      Institución Educativa San Martín de Socabaya
+    </div>
+
+    <img src="virgen.jpg" class="portada-img">
+
+    <div class="texto">
+      La comunidad educativa tiene el honor de invitar a usted a ser partícipe
+      de este homenaje de fe y devoción.
+    </div>
+
+    <div class="fecha">
+      📅 Jueves 30 de abril<br>
+      ⏰ 8:45 a.m.
+    </div>
+
+    <div class="frase">
+      "Bajo tu amparo nos acogemos, Santa Madre de Dios"
+    </div>
+
+  </div>
+</div>
+
+<!-- 🔹 PROGRAMA -->
+<div id="programa" class="seccion">
+
+  <h2 style="font-family:Cinzel;">📅 Programa</h2>
+
+  <div class="card">8:45 – 10:30<br>Actividades por aulas</div>
+  <div class="card">10:30 – 11:55<br>Espera al docente encargado</div>
+  <div class="card">11:55<br>Ubicación en patio principal</div>
+  <div class="card">12:00<br>Celebración de la palabra</div>
+  <div class="card">12:35<br>Bendición de la gruta</div>
+  <div class="card">12:40<br>Procesión externa</div>
+  <div class="card">2:45 pm<br>Compartir</div>
+  <div class="card">3:20 pm<br>Entrega de donaciones</div>
+  <div class="card">3:25 pm<br>Entronización</div>
+
+</div>
+
+<!-- 🔻 MENÚ -->
+<div class="nav">
+  <button onclick="ver('inicio')">Inicio</button>
+  <button onclick="ver('programa')">Programa</button>
+</div>
+
+<script>
+function ver(id){
+  let s=document.getElementsByClassName("seccion");
+  for(let i=0;i<s.length;i++){
+    s[i].classList.remove("activa");
+  }
+  document.getElementById(id).classList.add("activa");
+}
+
+let audio=document.getElementById("musica");
+
+function toggleMusica(){
+  if(audio.paused){ audio.play(); }
+  else{ audio.pause(); }
+}
+
+function activarMusica(){
+  audio.play();
+}
+</script>
+
+</body>
+</html>
