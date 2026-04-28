@@ -2,28 +2,30 @@
 <head>
 <title>Virgen de Chapi</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Great+Vibes&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Great+Vibes&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 body {
   margin: 0;
+  font-family: 'Montserrat', sans-serif;
   background: linear-gradient(135deg, #2b0000, #7a5c00);
   color: white;
   text-align: center;
-  overflow-x: hidden;
 }
 
-/* CONTENEDOR PRINCIPAL */
+/* CONTENEDOR */
 .contenedor {
-  max-width: 400px;
+  max-width: 500px;
   margin: auto;
-  padding: 30px 20px 120px;
+  padding: 25px 20px 120px;
 }
 
 /* TÍTULO */
 .titulo {
   font-family: 'Great Vibes', cursive;
-  font-size: 48px;
+  font-size: 42px;
   margin-bottom: 10px;
 }
 
@@ -32,28 +34,28 @@ body {
   font-family: 'Cinzel', serif;
   font-size: 14px;
   letter-spacing: 1px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 /* IMAGEN */
 .portada-img {
   width: 100%;
+  height: auto;
   border-radius: 20px;
   box-shadow: 0 0 25px gold;
   margin: 20px 0;
 }
 
-/* TEXTO PRINCIPAL */
+/* TEXTO */
 .texto {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 /* FECHA */
 .fecha {
-  font-family: 'Cinzel';
+  font-family: 'Cinzel', serif;
   font-size: 16px;
   margin-top: 20px;
 }
@@ -61,8 +63,8 @@ body {
 /* FRASE */
 .frase {
   font-style: italic;
-  font-size: 13px;
-  margin-top: 25px;
+  font-size: 14px;
+  margin-top: 20px;
   opacity: 0.9;
 }
 
@@ -73,11 +75,11 @@ body {
 
 .activa {
   display: block;
-  animation: fade 1s;
+  animation: fade 0.8s;
 }
 
 @keyframes fade {
-  from {opacity:0; transform: translateY(20px);}
+  from {opacity:0; transform: translateY(15px);}
   to {opacity:1;}
 }
 
@@ -85,9 +87,10 @@ body {
 .card {
   background: rgba(255,255,255,0.08);
   border-radius: 15px;
-  padding: 12px;
+  padding: 14px;
   margin: 10px;
   border: 1px solid rgba(255,215,0,0.3);
+  font-size: 16px;
 }
 
 /* MENÚ */
@@ -95,16 +98,19 @@ body {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(10px);
 }
 
 /* BOTONES */
 button {
-  padding: 10px 15px;
-  margin: 6px;
+  padding: 12px;
+  margin: 5px;
   border-radius: 12px;
   border: none;
   background: linear-gradient(45deg, gold, #ffcc00);
+  font-weight: bold;
+  font-size: 15px;
 }
 
 /* BOTÓN MÚSICA */
@@ -116,7 +122,39 @@ button {
   border-radius: 50%;
   width: 50px;
   height: 50px;
+  font-size: 18px;
   z-index: 999;
+  box-shadow: 0 0 10px gold;
+}
+
+/* ✨ ESTRELLAS */
+.estrella {
+  position: fixed;
+  width: 3px;
+  height: 3px;
+  background: gold;
+  border-radius: 50%;
+  animation: flotar linear infinite;
+}
+
+@keyframes flotar {
+  from { transform: translateY(100vh); opacity: 1; }
+  to { transform: translateY(-10vh); opacity: 0; }
+}
+
+/* 📱 AJUSTES PARA CELULAR */
+@media (max-width: 480px) {
+  .titulo {
+    font-size: 34px;
+  }
+
+  .texto {
+    font-size: 15px;
+  }
+
+  .card {
+    font-size: 15px;
+  }
 }
 </style>
 
@@ -124,11 +162,23 @@ button {
 
 <body onclick="activarMusica()">
 
+<!-- 🎵 AUDIO -->
 <audio id="musica" loop autoplay>
   <source src="musica.mp3" type="audio/mpeg">
 </audio>
 
 <button class="musica-btn" onclick="toggleMusica()">🎵</button>
+
+<!-- ✨ ESTRELLAS -->
+<script>
+for(let i=0;i<25;i++){
+  let e=document.createElement("div");
+  e.className="estrella";
+  e.style.left=Math.random()*100+"%";
+  e.style.animationDuration=(3+Math.random()*5)+"s";
+  document.body.appendChild(e);
+}
+</script>
 
 <!-- 🔹 PORTADA -->
 <div id="inicio" class="seccion activa">
