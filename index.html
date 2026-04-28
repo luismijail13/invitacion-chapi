@@ -13,118 +13,7 @@ body {
   background: linear-gradient(135deg, #2b0000, #7a5c00);
   color: white;
   text-align: center;
-}
-
-/* CONTENEDOR */
-.contenedor {
-  max-width: 500px;
-  margin: auto;
-  padding: 25px 20px 120px;
-}
-
-/* TÍTULO */
-.titulo {
-  font-family: 'Great Vibes', cursive;
-  font-size: 42px;
-  margin-bottom: 10px;
-}
-
-/* SUBTÍTULO */
-.subtitulo {
-  font-family: 'Cinzel', serif;
-  font-size: 14px;
-  letter-spacing: 1px;
-  margin-bottom: 20px;
-}
-
-/* IMAGEN */
-.portada-img {
-  width: 100%;
-  height: auto;
-  border-radius: 20px;
-  box-shadow: 0 0 25px gold;
-  margin: 20px 0;
-}
-
-/* TEXTO */
-.texto {
-  font-size: 16px;
-  line-height: 1.6;
-  margin-top: 15px;
-}
-
-/* FECHA */
-.fecha {
-  font-family: 'Cinzel', serif;
-  font-size: 16px;
-  margin-top: 20px;
-}
-
-/* FRASE */
-.frase {
-  font-style: italic;
-  font-size: 14px;
-  margin-top: 20px;
-  opacity: 0.9;
-}
-
-/* SECCIONES */
-.seccion {
-  display: none;
-}
-
-.activa {
-  display: block;
-  animation: fade 0.8s;
-}
-
-@keyframes fade {
-  from {opacity:0; transform: translateY(15px);}
-  to {opacity:1;}
-}
-
-/* PROGRAMA */
-.card {
-  background: rgba(255,255,255,0.08);
-  border-radius: 15px;
-  padding: 14px;
-  margin: 10px;
-  border: 1px solid rgba(255,215,0,0.3);
-  font-size: 16px;
-}
-
-/* MENÚ */
-.nav {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(10px);
-}
-
-/* BOTONES */
-button {
-  padding: 12px;
-  margin: 5px;
-  border-radius: 12px;
-  border: none;
-  background: linear-gradient(45deg, gold, #ffcc00);
-  font-weight: bold;
-  font-size: 15px;
-}
-
-/* BOTÓN MÚSICA */
-.musica-btn {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  background: gold;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 18px;
-  z-index: 999;
-  box-shadow: 0 0 10px gold;
+  overflow-x: hidden;
 }
 
 /* ✨ ESTRELLAS */
@@ -142,19 +31,112 @@ button {
   to { transform: translateY(-10vh); opacity: 0; }
 }
 
-/* 📱 AJUSTES PARA CELULAR */
-@media (max-width: 480px) {
-  .titulo {
-    font-size: 34px;
-  }
+/* 🌸 FLORES */
+.flor {
+  position: fixed;
+  font-size: 16px;
+  animation: caer linear infinite;
+}
 
-  .texto {
-    font-size: 15px;
-  }
+@keyframes caer {
+  from { transform: translateY(-10vh) rotate(0deg); }
+  to { transform: translateY(100vh) rotate(360deg); }
+}
 
-  .card {
-    font-size: 15px;
-  }
+/* CONTENEDOR */
+.contenedor {
+  max-width: 500px;
+  margin: auto;
+  padding: 25px 20px 140px;
+}
+
+/* TÍTULO */
+.titulo {
+  font-family: 'Great Vibes', cursive;
+  font-size: 42px;
+}
+
+/* SUBTÍTULO */
+.subtitulo {
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* IMAGEN */
+.portada-img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 0 25px gold;
+  margin: 20px 0;
+}
+
+/* TEXTO */
+.texto {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* FECHA */
+.fecha {
+  font-family: 'Cinzel';
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+/* FRASE */
+.frase {
+  font-style: italic;
+  margin-top: 20px;
+}
+
+/* SECCIONES */
+.seccion {
+  display: none;
+  padding-bottom: 140px;
+}
+
+.activa {
+  display: block;
+}
+
+/* TARJETAS */
+.card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 15px;
+  padding: 16px;
+  margin: 12px;
+  border: 1px solid rgba(255,215,0,0.3);
+  text-align: center;
+}
+
+/* MENÚ */
+.nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.7);
+}
+
+/* BOTONES */
+button {
+  padding: 12px;
+  margin: 5px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(45deg, gold, #ffcc00);
+}
+
+/* MÚSICA */
+.musica-btn {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: gold;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  z-index: 999;
 }
 </style>
 
@@ -162,14 +144,13 @@ button {
 
 <body onclick="activarMusica()">
 
-<!-- 🎵 AUDIO -->
 <audio id="musica" loop autoplay>
   <source src="musica.mp3" type="audio/mpeg">
 </audio>
 
 <button class="musica-btn" onclick="toggleMusica()">🎵</button>
 
-<!-- ✨ ESTRELLAS -->
+<!-- ✨ EFECTOS -->
 <script>
 for(let i=0;i<25;i++){
   let e=document.createElement("div");
@@ -178,9 +159,18 @@ for(let i=0;i<25;i++){
   e.style.animationDuration=(3+Math.random()*5)+"s";
   document.body.appendChild(e);
 }
+
+for(let i=0;i<10;i++){
+  let f=document.createElement("div");
+  f.className="flor";
+  f.innerHTML="🌸";
+  f.style.left=Math.random()*100+"%";
+  f.style.animationDuration=(5+Math.random()*5)+"s";
+  document.body.appendChild(f);
+}
 </script>
 
-<!-- 🔹 PORTADA -->
+<!-- PORTADA -->
 <div id="inicio" class="seccion activa">
   <div class="contenedor">
 
@@ -198,7 +188,7 @@ for(let i=0;i<25;i++){
     </div>
 
     <div class="fecha">
-      📅 Jueves 30 de abril<br>
+      🗓️ Jueves 30 de abril<br>
       ⏰ 8:45 a.m.
     </div>
 
@@ -209,24 +199,45 @@ for(let i=0;i<25;i++){
   </div>
 </div>
 
-<!-- 🔹 PROGRAMA -->
+<!-- PROGRAMA -->
 <div id="programa" class="seccion">
 
-  <h2 style="font-family:Cinzel;">📅 Programa</h2>
+  <h2 style="font-family:Cinzel;">🗓️ Programa</h2>
 
-  <div class="card">8:45 – 10:30<br>Actividades por aulas</div>
-  <div class="card">10:30 – 11:55<br>Espera al docente encargado</div>
-  <div class="card">11:55<br>Ubicación en patio principal</div>
-  <div class="card">12:00<br>Celebración de la palabra</div>
-  <div class="card">12:35<br>Bendición de la gruta</div>
-  <div class="card">12:40<br>Procesión externa</div>
-  <div class="card">2:45 pm<br>Compartir</div>
-  <div class="card">3:20 pm<br>Entrega de donaciones</div>
-  <div class="card">3:25 pm<br>Entronización</div>
+  <div class="card">
+
+    <div style="color:gold;"><b>⏰ 8:45 – 9:00</b></div>
+    <div><b>1°</b> → <span style="opacity:0.9;">A - B - C - D - E - F - G - H</span></div><br>
+
+    <div style="color:gold;"><b>⏰ 9:10 – 9:25</b></div>
+    <div><b>2°</b> → <span style="opacity:0.9;">A - B - C - D - E - F - G - H</span></div><br>
+
+    <div style="color:gold;"><b>⏰ 9:30 – 9:45</b></div>
+    <div><b>3°</b> → <span style="opacity:0.9;">A - B - C - D - E - F - G - H</span></div><br>
+
+    <div style="color:gold;"><b>⏰ 9:50 – 10:05</b></div>
+    <div><b>4°</b> → <span style="opacity:0.9;">A - B - C - D - E - F - G - H</span></div><br>
+
+    <div style="color:gold;"><b>⏰ 10:15 – 10:30</b></div>
+    <div><b>5°</b> → <span style="opacity:0.9;">A - B - C - D - E - F - G</span></div><br>
+
+    <div style="font-size:13px; opacity:0.8;">
+      Observación: Esperar al docente encargado para ser guiados en la peregrinación al patio principal.
+    </div>
+
+  </div>
+
+  <div class="card"><span style="color:gold;">⏰ 11:55</span><br>Ubicación en el patio principal</div>
+  <div class="card"><span style="color:gold;">⏰ 12:00</span><br>Celebración de la palabra</div>
+  <div class="card"><span style="color:gold;">⏰ 12:35</span><br>Bendición de la gruta</div>
+  <div class="card"><span style="color:gold;">⏰ 12:40</span><br>Procesión externa</div>
+  <div class="card"><span style="color:gold;">⏰ 2:45 pm</span><br>Compartir</div>
+  <div class="card"><span style="color:gold;">⏰ 3:20 pm</span><br>Entrega del cuaderno de donaciones 2026</div>
+  <div class="card"><span style="color:gold;">⏰ 3:25 pm</span><br>Entronización</div>
 
 </div>
 
-<!-- 🔻 MENÚ -->
+<!-- MENÚ -->
 <div class="nav">
   <button onclick="ver('inicio')">Inicio</button>
   <button onclick="ver('programa')">Programa</button>
@@ -236,9 +247,9 @@ for(let i=0;i<25;i++){
 function ver(id){
   let s=document.getElementsByClassName("seccion");
   for(let i=0;i<s.length;i++){
-    s[i].classList.remove("activa");
+    s[i].style.display="none";
   }
-  document.getElementById(id).classList.add("activa");
+  document.getElementById(id).style.display="block";
 }
 
 let audio=document.getElementById("musica");
